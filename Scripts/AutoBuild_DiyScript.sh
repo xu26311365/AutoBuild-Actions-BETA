@@ -53,7 +53,8 @@ fi
 exit 0
 EOF
 		sed -i "s?/bin/login?/usr/libexec/login.sh?g" ${FEEDS_PKG}/ttyd/files/ttyd.config
-		# sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+		sed -i 's/reg = <0x50000 0x1fb0000>/reg = <0x50000 0x3fb0000>/g' target/linux/ramips/dts/mt7621_d-team_newifi-d2.dts
+                # sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 		# sed -i '/uci commit luci/i\uci set luci.main.mediaurlbase="/luci-static/argon-mod"' $(PKG_Finder d package default-settings)/files/zzz-default-settings
 		
 		for i in eqos mentohust minieap unblockneteasemusic
